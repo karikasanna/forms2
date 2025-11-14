@@ -5,6 +5,7 @@ type Errors = Record<string, string>;
 
 function App() {
   const [errors, setErrors] = useState<Errors>({});
+  const [success, setSuccess] = useState(""); 
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,6 +28,13 @@ function App() {
       newErrors.terms = "A feltételek elfogadása kötelező!";
     }
     setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      setSuccess("Sikeres regisztráció!");
+    } else {
+      setSuccess("");
+    }
+
     console.log(lastName);
     console.log(firstName);
     console.log(position);
@@ -57,6 +65,7 @@ function App() {
         <p>{errors.terms}</p>
         <button type="submit">Regisztráció</button>
         <button type="button">Vissza</button>
+        <p className="success">{success}</p>
       </form>
     </>
   );

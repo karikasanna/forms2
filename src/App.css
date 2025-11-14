@@ -45,3 +45,9 @@ p {
   align-items: center;
   margin-bottom: 12px;
 }
+
+p.success {
+  color: green;
+  font-size: 14px;
+  margin: 8px 0 0;
+}
